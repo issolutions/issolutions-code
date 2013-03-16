@@ -1,0 +1,81 @@
+<?php
+/**
+ * The default template for displaying content
+ *
+ * @package WallPress
+ * @since WallPress 1.0.7
+ */
+?>
+<div id="item-<?php the_ID(); ?>" <?php post_class(); ?> >
+	<div class="item-inner">
+		<?php if(has_post_format( 'gallery') ) : ?>
+
+			<?php echo wallpress_gallery(); ?>
+
+		<?php else : ?>
+
+			<?php if( has_post_thumbnail() ) : ?>
+			<?php $grid = get_post_meta($post->ID, 'grid', true); ?>
+			<div class="item-thumbnail">
+				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'wallpress' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+					<?php
+					if($grid == 'double') :
+						the_post_thumbnail('medium');
+					else :
+						the_post_thumbnail('thumbnail');
+					endif;
+					?>
+				<?php if(has_post_format('video')) _e('<span class="video-play">Play</span>', 'wallpress'); ?>
+				</a>
+				<?php if(has_post_format('image')) : ?>
+				<a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" class="image-btn zoom" title="<?php printf( esc_attr__( '%s', 'wallpress' ), the_title_attribute( 'echo=0' ) ); ?>" ><?php the_title(); ?></a>
+				<?php endif; ?>
+			</div>
+			<?php endif; ?>
+			
+		<?php endif; ?>
+
+		<?php if(has_post_format('audio')) wallpress_audio_player( get_the_ID() ); ?>
+
+		<div class="item-main">
+			<div class="item-header">
+				<h2>
+				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'wallpress' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+				</h2>
+
+				<div class="item-meta meta-top clearfix">
+					
+					<?php
+						$categories_list = get_the_category_list( __( ', ', 'wallpress' ) );
+						if ( $categories_list ):
+					?>
+					<span class="item-category">
+						<?php printf( __( '<span class="%1$s"></span> %2$s', 'wallpress' ), 'entry-utility-prep entry-utility-prep-cat-links', $categories_list );
+					$show_sep = true; ?>
+					</span>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<div class="item-content">
+			<?php if ( is_search() ) : ?>
+				<?php the_excerpt(); ?>
+			<?php else : ?>
+				<?php the_content(''); ?>
+				<?php wp_link_pages( array( 'before' => '<div class="item-link-pages"><span> ' . __( 'Pages:', 'wallpress' ) . '</span>', 'after' => '</div>' ) ); ?>
+			<?php endif; ?>
+			</div>
+
+			<div class="item-meta meta-bottom">
+				<?php $show_sep = true; ?>
+				<span class="item-permalink">
+					<a title="<?php the_title(); ?>" href="<?php echo get_permalink(); ?>"><?php _e( 'Read more', 'wallpress' ); ?></a>
+				</span>
+				
+			</div>
+
+		</div>
+		
+	</div>
+</div>
+<!-- #item-<?php the_ID(); ?> -->
