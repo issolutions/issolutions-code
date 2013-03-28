@@ -13,13 +13,14 @@ get_header(); ?>
 			<div id="content">
 
 			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php get_template_part( 'content-page', get_post_format() ); ?>
-
+				<div class="main-post">
+					<?php get_template_part( 'content-page', get_post_format() ); ?>
+				</div>
 			<?php endwhile; ?>
 
 			</div>
 			<!-- #content -->
+			<a href="#header" class="scroll-top">Top</a>
 		</div>
 		<!-- #container -->
 

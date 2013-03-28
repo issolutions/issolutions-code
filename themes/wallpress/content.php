@@ -39,18 +39,21 @@
 
 		<div class="item-main">
 			<div class="item-header">
-				<h2>
+				<h2 class="item-title">
 				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'wallpress' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 				</h2>
 
 				<div class="item-meta meta-top clearfix">
-					
+					<span class="item-author">
+						<?php _e( 'By', 'wallpress' );?>
+						<?php the_author_posts_link(); ?>
+					</span>
 					<?php
 						$categories_list = get_the_category_list( __( ', ', 'wallpress' ) );
 						if ( $categories_list ):
 					?>
 					<span class="item-category">
-						<?php printf( __( '<span class="%1$s"></span> %2$s', 'wallpress' ), 'entry-utility-prep entry-utility-prep-cat-links', $categories_list );
+						<?php printf( __( '<span class="%1$s">in</span> %2$s', 'wallpress' ), 'entry-utility-prep entry-utility-prep-cat-links', $categories_list );
 					$show_sep = true; ?>
 					</span>
 					<?php endif; ?>
@@ -71,7 +74,14 @@
 				<span class="item-permalink">
 					<a title="<?php the_title(); ?>" href="<?php echo get_permalink(); ?>"><?php _e( 'Read more', 'wallpress' ); ?></a>
 				</span>
-				
+				<?php if ( $show_sep ) : ?>
+				<span class="sep"> &bull; </span>
+				<?php endif; // End if $show_sep ?>
+				<span class="comments-link">
+					<?php comments_popup_link( '<span class="leave-reply">' . __( '0 comment', 'wallpress' ) . '</span>', __( '<b>1</b> comment', 'wallpress' ), __( '<b>%</b> comments', 'wallpress' ) ); ?>
+				</span>
+				<?php edit_post_link( __( 'Edit', 'wallpress' ), '<span class="sep"> &bull; </span><span class="edit-link">', '</span>' ); ?>
+
 			</div>
 
 		</div>

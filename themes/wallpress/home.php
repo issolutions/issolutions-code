@@ -17,10 +17,12 @@ if( wallpress_get_customize( 'static_cat', array() ) ) {
 }
 ?>
 
+<?php get_sidebar(); ?>
+
 		<div id="container" class="clearfix">
 			
 			<div id="content" class="masonry">
-		
+
 			<?php if ( have_posts() ) : ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>

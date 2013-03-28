@@ -147,6 +147,12 @@ table {
 		  margin-bottom:0;
 		  }
 
+.service-icons{
+		  width: 100%;
+		max-width: 870px;
+		text-align: center;
+		}
+		   
 .main-post{margin: 0 auto;
 			width: 100%;
 			max-width: 870px;
@@ -3428,7 +3434,7 @@ span.wpcf7-form-control-wrap {
 	
 	#branding a{
 	height:67px;
-	background: url(http://localhost/is-solutionsllc/wp-content/uploads/2013/03/logo.png) no-repeat center;
+	background: url(http://is-solutionsllc.com/main/wp-content/themes/issolutions/assets/images/logo.png) no-repeat center;
 	background-size:150px auto;
 	}
 	
@@ -3504,6 +3510,16 @@ span.wpcf7-form-control-wrap {
 		width: 100%;
 	}
 
+	.service-icons{
+			
+		max-width: 320px;
+		
+		}
+	
+	.one_fourth {
+		width: 50%;
+		}
+	
 	.comm-it-tabs {display:none;}
 	
 	/* Blog ---*/
@@ -3611,6 +3627,16 @@ margin-bottom:10px;
 	.format-video iframe {
 		height: auto;
 	}
+	
+	 .service-icons{
+			
+		max-width: 320px;
+		
+		}
+	
+	.one_fourth {
+		width: 50%;
+		}
 	
 	.one_third {width:250px; margin-bottom:15px;}
 	

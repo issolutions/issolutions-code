@@ -7,7 +7,7 @@
  */
 
 get_header(); ?>
-<div class="page-header"><?php the_title(); ?></div>
+
 		<div id="container" class="clearfix">
 						
 			<div id="content">

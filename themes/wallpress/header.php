@@ -49,11 +49,6 @@
 	wp_head();
 ?>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_stylesheet_uri(); ?>" />
-<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
-<style>
-	html { margin-top: 0px !important; }
-	* html body { margin-top: 0px !important; }
-</style>
 </head>
 
 <body <?php body_class(); ?>>

@@ -20,7 +20,7 @@
 				<span class="item-author">
 					<?php _e( 'By', 'wallpress' );?>
 					<?php the_author_posts_link(); ?>
-				</span>z
+				</span>
 				<?php
 					$categories_list = get_the_category_list( __( ', ', 'wallpress' ) );
 					if ( $categories_list ):
